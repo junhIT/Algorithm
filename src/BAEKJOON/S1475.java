@@ -12,13 +12,37 @@ package BAEKJOON;
 첫째 줄에 필요한 세트의 개수를 출력한다.
  */
 
-
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class S1475 {
-
-	public static void main(String[] args) {
+	static int[] numArr;
+	static int count;
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String message = br.readLine();
+		numArr = new int[9];
+		count=0;
+		
+		for(char c : message.toCharArray()) {
+			int temp = (int)c-'0';
+			if(temp==9) temp=6;
+			if(numArr[temp]==0) {
+				buyArr();
+			}
+			numArr[temp]--;
+		}
+		System.out.println(count);
+	}
+	
+	public static void buyArr() {
+		for(int n = 0; n < 9; n++) {
+			if(n==6)numArr[n]=numArr[n]+2;
+			else numArr[n]++;
+		}
+		count++;
 	}
 
 }
