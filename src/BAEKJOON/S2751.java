@@ -41,7 +41,7 @@ public class S2751 {
 		for(int i = 0; i < n; i++) {
 			list.add(Integer.parseInt(br.readLine()));
 		}
-		
+		// Timsort 알고리즘을 사용한다. 제일 빠른듯( n ~ logN)
 		Collections.sort(list);
 		
 		for(int value : list) {
