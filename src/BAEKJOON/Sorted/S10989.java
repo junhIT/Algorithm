@@ -1,4 +1,4 @@
-package BAEKJOON.정렬;
+package BAEKJOON.Sorted;
 
 import java.io.BufferedReader;
 import java.io.IOException;
