@@ -7,19 +7,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-class Pair{
-	int x;
-	int y;
-	
-	Pair(int x, int y) {
-		this.x = x;
-		this.y = y;
-	}
-
-	public Pair() {
-		// TODO Auto-generated constructor stub
-	}
-}
 
 public class S1926 {
 	
