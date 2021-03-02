@@ -60,48 +60,39 @@ public class S7576 {
 			}
 		}
         
-		int day = 0;
-		boolean changeExist = true;
-		while(changeExist) {
-			changeExist = false;
-			for(int i = 0; i < x; i++) {
-				for(int j = 0; j < y; j++) {
-					if(border[i][j] != 1) continue;
+		for(int i = 0; i < x; i++) {
+			for(int j = 0; j < y; j++) {
+				if(border[i][j] == 1) 
 					q.add(new Pair7576(i, j));
-				}
 			}
-			while(!q.isEmpty()) {
-				Pair7576 xy = q.poll();
-				
-				for(int t = 0; t < 4; t++) {
-					int nx = xy.x + dx[t];
-					int ny = xy.y + dy[t];
-					if(nx < 0 || nx >= x || ny < 0 || ny >= y) continue;
-					if(border[nx][ny] != 0) continue;
-						
-					border[nx][ny]=1;
-							
-					if(changeExist == false) changeExist = true;
-				}
-			}
-
-			day = (changeExist) ? ++day : day;
 		}
-
+		while(!q.isEmpty()) {
+			Pair7576 xy = q.poll();
+			
+			for(int t = 0; t < 4; t++) {
+				int nx = xy.x + dx[t];
+				int ny = xy.y + dy[t];
+				if(nx < 0 || nx >= x || ny < 0 || ny >= y) continue;
+				if(border[nx][ny] != 0) continue;
+					
+				border[nx][ny]=border[xy.x][xy.y]+1;
+				q.add(new Pair7576(nx, ny));
+			}
+		}
 		
 		
-		boolean hasZero = false;
+		int day=0;
 		for(int i = 0; i < x; i++) {
 			for(int j = 0; j < y; j++) {
 				if(border[i][j] == 0) {
-					hasZero = true;
-					break;
+					System.out.println("-1");
+					return;
 				}
+				day = Math.max(day,  border[i][j]);
 			}
-			if(hasZero) break;
+			
 		}
 		
-		if(hasZero) System.out.println("-1");
-		else System.out.println(day); 
+		System.out.println(day-1); 
 	}
 }
