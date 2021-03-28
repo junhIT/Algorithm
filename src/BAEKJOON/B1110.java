@@ -12,14 +12,14 @@ public class B1110 {
 		// TODO Auto-generated method stub
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		
 		String str = br.readLine();
-		String num = (str.length() == 1) ? "0"+str : str; 
+		String num = (str.length() == 1) ? "0"+str : str; // num = 처음 숫자.
 		
-		int sum = 0;
+		
 		int count = 0;
 		String newNum = "";
 		while(!num.equals(newNum)) {
+			int sum = 0;
 			if(newNum=="") newNum = num;
 			for(String s : newNum.split("")) {
 				sum += Integer.parseInt(s);
@@ -27,7 +27,6 @@ public class B1110 {
 			if (sum < 10) newNum += sum;
 			else newNum += sum%10;
 			newNum = newNum.substring(1,3);
-			System.out.println( " num : " + num + " newNum : " + newNum );
 			count++;
 		}
 		System.out.println(count);
